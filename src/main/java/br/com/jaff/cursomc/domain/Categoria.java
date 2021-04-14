@@ -2,21 +2,30 @@ package br.com.jaff.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
 public class Categoria implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String categoria;
+	private String nome;
 	
 	public Categoria() {
 		
 	}
 
-	public Categoria(Integer id, String categoria) {
+	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
-		this.categoria = categoria;
+		this.nome = nome;
 	}
 
 	public Integer getId() {
@@ -27,12 +36,12 @@ public class Categoria implements Serializable {
 		this.id = id;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
